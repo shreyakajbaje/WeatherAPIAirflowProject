@@ -1,0 +1,26 @@
+[2024-05-21T04:03:55.661+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-05-21T04:03:55.672+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_dag.is_weather_api_ready manual__2024-05-21T04:03:54.140486+00:00 [queued]>
+[2024-05-21T04:03:55.677+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_dag.is_weather_api_ready manual__2024-05-21T04:03:54.140486+00:00 [queued]>
+[2024-05-21T04:03:55.677+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2024-05-21T04:03:55.690+0000] {taskinstance.py:2330} INFO - Executing <Task(HttpSensor): is_weather_api_ready> on 2024-05-21 04:03:54.140486+00:00
+[2024-05-21T04:03:55.697+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=7209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-05-21T04:03:55.698+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_dag', 'is_weather_api_ready', 'manual__2024-05-21T04:03:54.140486+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmpaxzb2vph']
+[2024-05-21T04:03:55.702+0000] {standard_task_runner.py:63} INFO - Started process 7218 to run task
+[2024-05-21T04:03:55.703+0000] {standard_task_runner.py:91} INFO - Job 56: Subtask is_weather_api_ready
+[2024-05-21T04:03:55.740+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_dag.is_weather_api_ready manual__2024-05-21T04:03:54.140486+00:00 [running]> on host 39024998a807
+[2024-05-21T04:03:55.802+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_dag' AIRFLOW_CTX_TASK_ID='is_weather_api_ready' AIRFLOW_CTX_EXECUTION_DATE='2024-05-21T04:03:54.140486+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-05-21T04:03:54.140486+00:00'
+[2024-05-21T04:03:55.804+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-05-21T04:03:55.804+0000] {baseoperator.py:399} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2024-05-21T04:03:55.805+0000] {http.py:137} INFO - Poking: /data/2.5/weather?q=Pune&appid=f3ab10bd45b1669434c4da7f043b1a5a
+[2024-05-21T04:03:55.812+0000] {base.py:84} INFO - Using connection ID 'weathermap_api' for task execution.
+[2024-05-21T04:03:56.509+0000] {base.py:294} INFO - Success criteria met. Exiting.
+[2024-05-21T04:03:56.510+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-05-21T04:03:56.522+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_dag, task_id=is_weather_api_ready, run_id=manual__2024-05-21T04:03:54.140486+00:00, execution_date=20240521T040354, start_date=20240521T040355, end_date=20240521T040356
+[2024-05-21T04:03:56.545+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-05-21T04:03:56.552+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296: AirflowProviderDeprecationWarning: Call to deprecated class SimpleHttpOperator. (Class `SimpleHttpOperator` is deprecated and will be removed in a future release. Please use `HttpOperator` instead.)
+  result = cls.__new__(cls)
+
+[2024-05-21T04:03:56.564+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-05-21T04:03:56.565+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
