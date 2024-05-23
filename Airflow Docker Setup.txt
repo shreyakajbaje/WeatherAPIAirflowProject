@@ -1,0 +1,31 @@
+1. Docker Desktop Setup on local machine - 
+used steps from https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
+
+installed docker desktop binaries
+
+curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.9.1/docker-compose.yaml' - docker compose yaml
+
+mkdir -p ./dags ./logs ./plugins ./config
+echo -e "AIRFLOW_UID=$(id -u)" > .env - setting airflow user
+
+docker compose up airflow-init - initialize database
+
+docker compose up - running airflow
+
+docker compose run airflow-worker airflow info - running cli commands 
+
+access airflow UI at - 0.0.0.0:8080
+
+2. Connect docker running airflow container with VScode -
+
+refered - https://youtu.be/fsMKV9A1B-I?si=WPDIuoMgliWQ0n34
+
+install dev containers extension
+
+add dockerfile having content -
+FROM apache/airflow:2.7.2 line
+RUN pip install apache-airflow-providers-airbyte
+
+add dev container config file as this docker and repoen container. new container with airflow and vscode installed will be up
+
+
